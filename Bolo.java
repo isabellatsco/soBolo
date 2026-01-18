@@ -24,5 +24,19 @@ public abstract class Bolo implements IBolo {
 
     public IFormato getFormato() { return formato; }
     public void setFormato(IFormato formato) { this.formato = formato; }
+	
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Bolo b = (Bolo) o;
+        return codigo == b.codigo;
+    }
 
+    @Override
+    public String toString() {
+        return 
+       "[CÓD: " + codigo +
+       " | Custo: R$ " + custo +
+       "]";
+    }
 }
