@@ -23,10 +23,10 @@ public class BoloSimples extends Bolo {
 	
 	@Override
 	public String toString() {
-		return super.toString() +
-        	" Preço: " + this.preco() +
-        	(this.isSemLactose() ? "Sem" : "Com") + " Lactose" +
-        	" | Formato: " + this.getFormato().getClass().getSimpleName();
+		return super.toString() + " Bolo Simples\n" +
+        	"⤷ Preço: " + this.preco() +
+        	" | Formato: " + this.getFormato().getClass().getSimpleName() +
+        	(this.isSemLactose() ? "Sem" : "Com") + " Lactose";
         
     }
 	
