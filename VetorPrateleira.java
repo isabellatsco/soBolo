@@ -1,8 +1,8 @@
 package soBolos;
 
 public class VetorPrateleira implements IPrateleira {
-	int qtdBolo;
-	
+	private int qtdBolo;
+	private IBolo[] prateleira;
 	
 	public VetorPrateleira() {
 //		super();
@@ -11,13 +11,18 @@ public class VetorPrateleira implements IPrateleira {
 	public VetorPrateleira(int qtdBolo) {
 //		super();
 		this.qtdBolo = qtdBolo;
-		
+		this.prateleira = new IBolo[qtdBolo];
 	}
 
 	@Override
 	public int buscar(IBolo bolo) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (bolo == null) return -1;
+		for (int i = 0; i < prateleira.length; i++) {
+			if (prateleira[i] != null && prateleira[i].equals(bolo)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	@Override
@@ -34,8 +39,7 @@ public class VetorPrateleira implements IPrateleira {
 
 	@Override
 	public boolean existe(IBolo bolo) {
-		// TODO Auto-generated method stub
-		return false;
+		return buscar(bolo) != -1;
 	}
 
 	@Override
@@ -58,20 +62,53 @@ public class VetorPrateleira implements IPrateleira {
 
 	@Override
 	public IBolo consultar(IBolo bolo) {
-		// TODO Auto-generated method stub
-		return null;
+		int posicao = buscar(bolo);
+		if (posicao == -1) return null;
+		return prateleira[posicao];
 	}
 
 	@Override
 	public IBolo[] listar() {
-		// TODO Auto-generated method stub
-		return null;
+		int cont = 0, i = 0;
+		for (IBolo bolo : prateleira) {
+			if (bolo != null) cont++;
+		}
+		
+		IBolo[] resultado = new IBolo[cont];
+		for (IBolo bolo : prateleira) {
+			if (bolo != null) {
+				resultado[i] = bolo;
+				i++;
+			}
+		}
+		return resultado;
 	}
 
 	@Override
-	public IBolo[] listar(char c) {
-		// TODO Auto-generated method stub
-		return null;
+	public IBolo[] listar(char tipo) {
+		int cont = 0, i = 0;
+		for (IBolo bolo : prateleira) {
+			if (bolo != null) {
+				if (tipo == 'S' && bolo instanceof BoloSimples) {
+					cont++;
+				} else if (tipo == 'T' && bolo instanceof Torta) {
+					cont++;
+				}
+			}
+		}
+		
+		IBolo[] lista = new IBolo[cont];
+		for (IBolo bolo : prateleira) {
+			if (bolo != null) {
+				if (tipo == 'S' && bolo instanceof BoloSimples) {
+					lista[i] = bolo;
+				} else if (tipo == 'T' && bolo instanceof Torta) {
+					lista[i] = bolo;
+				}
+				i++;
+			}
+		}
+		return lista;
 	}
 	
 }
