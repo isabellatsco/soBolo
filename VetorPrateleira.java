@@ -24,17 +24,27 @@ public class VetorPrateleira implements IPrateleira {
 		}
 		return -1;
 	}
+	
+	private int quantosBolos() {
+		int qt = 0;
+		for (int i = 0; i < this.qtdBolo; i++) {
+			if (prateleira[i] != null) {
+				qt++;
+			}
+		}
+		return qt;
+	}
 
 	@Override
 	public boolean cheia() {
-		// TODO Auto-generated method stub
-		return false;
+		int qt = quantosBolos();
+		return qt == this.qtdBolo ? true : false;
 	}
 
 	@Override
 	public boolean vazia() {
-		// TODO Auto-generated method stub
-		return false;
+		int qt = quantosBolos();
+		return qt == 0 ? true : false;
 	}
 
 	@Override
