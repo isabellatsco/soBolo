@@ -15,7 +15,7 @@ public class Quadrado implements IFormato {
 
 	public void setLado(double lado) {
 		if(lado <= 0) {
-			System.out.println("Insira um valor positivo para o lado"); 
+			throw new IllegalArgumentException("Insira um valor positivo para o lado");
 		} else {
 			this.lado = lado;
 		}

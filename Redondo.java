@@ -15,11 +15,10 @@ public class Redondo implements IFormato {
 
 	public void setRaio(double raio) {
 		if(raio <= 0) {
-			System.out.println("Insira um valor positivo para o raio");
+			throw new IllegalArgumentException("Insira um valor positivo para o raio");
 		} 
 		else {
 			this.raio = raio;
-
 		}
 	}
 

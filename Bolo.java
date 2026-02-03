@@ -19,11 +19,10 @@ public abstract class Bolo implements IBolo {
 	
 	public void setCodigo(int codigo) { 
 		if(codigo <= 0) {
-			System.out.println("Insira um número positivo");
+			throw new IllegalArgumentException("Insira um número positivo");
 		} 
 		else {
 			this.codigo = codigo;
-
 		}
 	}
 
@@ -31,7 +30,7 @@ public abstract class Bolo implements IBolo {
 	
 	public void setCusto(double custo) {
 		if(custo <= 0) {
-			System.out.println("Insira um valor positivo");
+			throw new IllegalArgumentException("Insira um valor positivo");
 		} 
 		else {
 			this.custo = custo; 
@@ -42,7 +41,7 @@ public abstract class Bolo implements IBolo {
 	
 	public void setFormato(IFormato formato) {
 		if(formato == null) {
-			System.out.println("Insira um formato válido");
+			throw new IllegalArgumentException("Insira um formato válido");
 		}
 		else {
 			this.formato = formato; 
