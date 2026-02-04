@@ -33,9 +33,10 @@ public class Torta extends Bolo {
 		return super.toString() + " Torta\n" +
         	"⤷ Preço: " + this.preco() +
         	" | Formato: " + this.getFormato().getClass().getSimpleName() +
-			(this.isRecheio() ? "Sem" : "Com") + " Recheio" +
-			(this.isCobertura() ? "Sem" : "Com") + " Cobertura";
+			(this.isRecheio() ? "Com" : "Sem") + " Recheio" +
+			(this.isCobertura() ? "Com" : "Sem") + " Cobertura";
         
     }
 	
 }
+
